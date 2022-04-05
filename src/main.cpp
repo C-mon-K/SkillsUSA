@@ -67,8 +67,8 @@ void opcontrol() {
 		bool clawClose = master.get_digital(pros::E_CONTROLLER_DIGITAL_R2);
 
 		if(clawOpen && clawClose) CLAW.move(0);				//do nothing, if both buttons are pressed 
-		else if(clawOpen) CLAW.move_velocity(50);			//open at 50% speed, if R1 is pressed
-		else if(clawClose) CLAW.move_velocity(-50);			//close at 50% speed, if R2 is pressed
+		else if(clawOpen) CLAW.move(80);			//open at 50% speed, if R1 is pressed
+		else if(clawClose) CLAW.move(-80);			//close at 50% speed, if R2 is pressed
 		else CLAW.move(0);									//do nothing, if neither button is pressed
 
 		pros::delay(20); //20ms delay to prevent the v5 brain from overloading
